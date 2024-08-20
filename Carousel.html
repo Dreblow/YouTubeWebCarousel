@@ -1,12 +1,12 @@
 <!DOCTYPE html PUBLIC>
 
 <style>
+/* Carousel */
 * { box-sizing: border-box; }
 
-body { font-family: sans-serif; }
+.desktop-content { font-family: sans-serif; }
 
 .scene {
-
   position: relative;
   width: 560px;
   height: 315px;
@@ -94,66 +94,219 @@ body { font-family: sans-serif; }
 .next-button:hover {
   box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.19);
 }
+
+/*slide show*/
+.mobile-content {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.slideshow-container {
+    position: relative;
+    max-width: 100%;
+    width: 560px;
+    height: 315px;
+    overflow: hidden;
+    border: 2px solid #ddd;
+    box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+}
+
+.slides {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.5s ease-in-out;
+}
+
+.slide {
+    min-width: 100%;
+    transition: opacity 1s ease-in-out;
+}
+
+@keyframes slide {
+    0% { transform: translateX(0%); }
+    20% { transform: translateX(0%); }
+    25% { transform: translateX(-100%); }
+    45% { transform: translateX(-100%); }
+    50% { transform: translateX(-200%); }
+    70% { transform: translateX(-200%); }
+    75% { transform: translateX(-300%); }
+    95% { transform: translateX(-300%); }
+    100% { transform: translateX(0%); }
+}
+
+img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* Hidden sections */
+.hidden {
+    display: none;
+}
 </style>
 
 <body>
-  <div class="scene">
-    <div class="carousel">
-      <div class="carousel__cell">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/OTuZ9oSjYDU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="carousel__cell">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/WvvFlj0d3K4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="carousel__cell">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/H6STA2ApTlk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="carousel__cell">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/fbBnKdj-VLc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="carousel__cell">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/bcLq53ZH-rI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="carousel__cell">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/WqwsCBlae5Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="carousel__cell">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/v6HUPLzMMJg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="carousel__cell">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/jU4eBvAlNHg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-      </div>
-      <div class="carousel__cell">
-        <iframe width="560" height="315" src="https://www.youtube.com/embed/2-X7AZUhyZ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+  <div id="desktop">
+    <div class="desktop-content">
+      <div class="scene">
+        <div class="carousel">
+          <div class="carousel__cell">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/OTuZ9oSjYDU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="carousel__cell">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/WvvFlj0d3K4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="carousel__cell">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/H6STA2ApTlk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="carousel__cell">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/fbBnKdj-VLc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="carousel__cell">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/bcLq53ZH-rI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="carousel__cell">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/WqwsCBlae5Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="carousel__cell">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/v6HUPLzMMJg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="carousel__cell">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/jU4eBvAlNHg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+          <div class="carousel__cell">
+            <iframe width="560" height="315" src="https://www.youtube.com/embed/2-X7AZUhyZ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+          </div>
+        </div>
       </div>
     </div>
   </div>
+
+  <div id="mobile">
+    <div class="mobile-content">
+      <div class="slideshow-container">
+        <div class="slides">
+            <div class="slide">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/OTuZ9oSjYDU" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="slide">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/WvvFlj0d3K4" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="slide">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/H6STA2ApTlk" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="slide">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/fbBnKdj-VLc" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="slide">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/bcLq53ZH-rI" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="slide">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/WqwsCBlae5Q" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="slide">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/v6HUPLzMMJg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="slide">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/jU4eBvAlNHg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+            <div class="slide">
+              <iframe width="560" height="315" src="https://www.youtube.com/embed/2-X7AZUhyZ8" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
   <p style="text-align: center;padding-bottom: 25px;">
     <button class="previous-button">Previous</button>
     <button class="next-button">Next</button>
   </p>
+
 </body>
 
 <script>
+  // Carousel
   var carousel = document.querySelector('.carousel');
-var cellCount = 9;
-var selectedIndex = 0;
+  var cellCount = 9;
+  var selectedIndex = 0;
 
-function rotateCarousel() {
-  var angle = selectedIndex / cellCount * -360;
-  carousel.style.transform = 'translateZ(-900px) rotateY(' + angle + 'deg)';
-}
+  // Slideshow
+  var slides = document.querySelector('.slides');
+  var slideIndex = 0;
+  var slideCount = document.querySelectorAll('.slide').length;
 
-var prevButton = document.querySelector('.previous-button');
-prevButton.addEventListener( 'click', function() {
-  selectedIndex--;
-  rotateCarousel();
-});
+  function rotateCarousel() {
+    var angle = selectedIndex / cellCount * -360;
+    carousel.style.transform = 'translateZ(-900px) rotateY(' + angle + 'deg)';
+  }
 
-var nextButton = document.querySelector('.next-button');
-nextButton.addEventListener( 'click', function() {
-  selectedIndex++;
-  rotateCarousel();
-});
+  function moveSlide() {
+    var percentage = slideIndex * -100;
+    slides.style.transform = 'translateX(' + percentage + '%)';
+  }
+
+  function isMobile() {
+    const toMatch = [
+        /Android/i,
+        /webOS/i,
+        /iPhone/i,
+        /iPad/i,
+        /iPod/i,
+        /BlackBerry/i,
+        /Windows Phone/i
+    ];
+    
+    return toMatch.some((toMatchItem) => {
+        return navigator.userAgent.match(toMatchItem);
+    });
+  }
+
+  function applyView() {
+    var desktopSection = document.getElementById('desktop');
+    var mobileSection = document.getElementById('mobile');
+
+    if (isMobile()) {
+      desktopSection.classList.add('hidden');
+      mobileSection.classList.remove('hidden');
+    } else {
+      mobileSection.classList.add('hidden');
+      desktopSection.classList.remove('hidden');
+    }
+  }
+
+  var prevButton = document.querySelector('.previous-button');
+  prevButton.addEventListener('click', function () {
+    if (isMobile()) {
+      slideIndex = (slideIndex > 0) ? slideIndex - 1 : slideCount - 1;
+      moveSlide();
+    } else {
+      selectedIndex--;
+      rotateCarousel();
+    }
+  });
+
+  var nextButton = document.querySelector('.next-button');
+  nextButton.addEventListener('click', function () {
+    if (isMobile()) {
+      slideIndex = (slideIndex < slideCount - 1) ? slideIndex + 1 : 0;
+      moveSlide();
+    } else {
+      selectedIndex++;
+      rotateCarousel();
+    }
+  });
+
+  applyView();
+
+  // Reapply view on window resize
+  window.addEventListener('resize', applyView);
 </script>
-
